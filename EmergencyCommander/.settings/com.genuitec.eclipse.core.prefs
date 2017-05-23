@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/js,WebRoot/WEB-INF/css,WebRoot/WEB-INF/ext,WebRoot
+validator.Revalidate=true
+validator.Unchecked=WebRoot/download,WebRoot/WEB-INF,WebRoot/META-INF,WebRoot/jsps,WebRoot/images

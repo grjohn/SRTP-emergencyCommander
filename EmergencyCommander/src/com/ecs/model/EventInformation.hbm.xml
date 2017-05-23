@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	
+<hibernate-mapping>
+
+	<class name="com.ecs.model.EventInformation" table="eventinformation">
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+		<property name="ename" column="ename" type="string" length="50"></property>
+		<property name="location" column="location" type="string" length="100"></property>
+		<property name="type" column="type" type="string" length="30"></property>
+		<property name="level" column="level" type="string" length="30"></property>
+		<property name="detail" column="detail" type="text"></property>
+		<property name="htime" column="htime" type="date"></property>
+		<property name="rtime" column="rtime" type="date"></property>
+		<property name="cman" column="cman" type="string" length="20"></property>
+		<property name="rman" column="rman" type="string" length="20"></property>
+		<property name="ctel" column="ctel" type="string" length="20"></property>
+		<property name="rtel" column="rtel" type="string" length="20"></property>
+		<property name="cunit" column="cunit" type="string" length="50"></property>
+		<property name="unittel" column="unittel" type="string" length="20"></property>
+		<property name="status" column="status" type="string" length="20"></property>
+		<property name="casualty" column="casualty" type="int" length="20"></property>
+		<property name="death" column="death" type="int"></property>
+		<property name="hurt" column="hurt" type="int"></property>
+		<property name="miss" column="miss" type="int"></property>
+	</class>
+
+</hibernate-mapping>

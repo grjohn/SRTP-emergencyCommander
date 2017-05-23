@@ -1,0 +1,325 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+li {
+	list-style: none;
+}
+body {
+	background-image: url(../images/login/login_bg.jpg);
+}
+#login {
+	width: 420px;
+	height: auto;
+	padding-bottom: 20px;
+	border: 1px solid #DDDDDD;
+	margin: 12% auto;
+	background: #fff;
+	font-family: inherit;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	transition: .3s;
+}
+#login a {
+	text-decoration: none;
+}
+#login a:hover {
+	text-decoration: underline;
+}
+#login ul {
+	width: 100%;
+	height: auto;
+}
+#login #login_top {
+	height: 49px;
+	line-height: 49px;
+	border-bottom: 1px solid #F2F2F2;
+	color: #666666;
+	font-weight: 700;
+	font-size: 20px;
+	background: #F7F7F7;
+}
+#login #login_top li {
+	margin-left: 50px;
+}
+#login #login_form li {
+	width: 350px;
+	height: 42px;
+	line-height: 42px;
+	position: relative;
+	margin: 10px auto;
+}
+#login #login_form .login_input input {
+	border: 1px solid #DDDDDD;
+	padding: 12px 10px;
+	padding-left: 40px;
+	width: 298px;
+	top: 12px;
+	position: absolute;
+	outline: none;
+}
+#login #login_form .login_input label {
+	cursor: text;
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: 6px;
+	width: 0;
+	height: 24px;
+	overflow: hidden;
+	padding: 0 0 0 24px;
+	z-index: 20;
+}
+#login #login_form .login_input .usernmae_label {
+	background: url(../images/login/input_icons.png) 0 -70px no-repeat;
+}
+#login #login_form .login_input .usernmae_label_focus {
+	background: url(../images/login/input_icons.png) 0 -110px no-repeat;
+}
+#login #login_form .login_input .password_label {
+	background: url(../images/login/input_icons.png) 0 -148px no-repeat;
+}
+#login #login_form .login_input .password_label_focus {
+	background: url(../images/login/input_icons.png) 0 -188px no-repeat;
+}
+#login #login_remem {
+	position: relative;
+	top:10px;
+	width: 350px;
+	height: 20px;
+	margin: 0px auto;
+}
+#login #login_remem li {
+	height: 16px;
+	font-size: 12px;
+	color: #666666;
+	margin: 0px auto;
+}
+#login #login_remem li input {
+	vertical-align: middle;
+}
+#login #login_remem li label {
+	top: 2px;
+	position: relative;
+}
+#login #login_remem li a {
+	position: relative;
+	top: 2px;
+	font-size: 12px;
+	color: #1B66C7;
+}
+#login #login_submit {
+	width: 350px;
+	height: 100px;
+	margin: 14px auto;
+	border-bottom: 1px solid #EEEEEE;
+}
+#login #login_submit li {
+	text-align: right;
+	height: 48px;
+	float: left;
+}
+#login #login_submit input {
+	width: 350px;
+	height: 48px;
+	display: block;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #fff;
+	border: 0;
+	font-family: inherit;
+	outline: 0;
+	text-align: center;
+	background: #3f89ec;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	transition: .3s;
+}
+#login #login_submit p#errormsg{
+	width: 280px;
+	height: 48px;
+	font-size: 12px;
+	padding-left: 10px;
+	line-height: 48px;
+	text-align: left;
+	color: red;
+	float: left;
+}
+#login #login_submit a {
+	font-size: 12px;
+	line-height: 50px;
+	color: #1B66C7;
+}
+#login #login_captcha {
+	display: none;
+	position: relative;
+	top:10px;
+	height: 48px;
+	width: 350px;
+	margin: 0 auto;
+}
+#login #login_captcha .captcha_input{
+	float: left;
+	cursor: text;
+	width: 180px;
+	height: 42px;
+	line-height: 42px;
+}
+#login #login_captcha .captcha_input input{
+	border: 1px solid #DDDDDD;
+	padding: 12px 10px;
+	width: 156px;
+	position: absolute;
+	outline: none;
+}
+#login #login_captcha .captcha_i2{
+	margin-left: 10px;
+	cursor: default;
+	border: 0;
+	width: 90px;
+	height: 42px;
+	float: left;
+}
+#login #login_captcha .captcha_i3 a{
+	margin-right: 4px;
+	font-size: 12px;
+	height: 48px;
+	line-height: 48px;
+	float: right;
+}
+
+
+
+#register a{
+	text-decoration: none;
+}
+
+#register {
+	width: 420px;
+	height: 400px;
+	border: 1px solid #DDDDDD;
+	margin: 10% auto;
+	background: #fff;
+	font-family: inherit;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	transition: .3s;
+}
+#register #register_top {
+	height: 49px;
+	line-height: 49px;
+	border-bottom: 1px solid #F2F2F2;
+	color: #666666;
+	font-weight: 700;
+	font-size: 20px;
+	background: #F7F7F7;
+}
+#register #register_top  li{
+	margin-left: 50px;
+}
+#register #register_form{
+	float: left;
+}
+#register #register_form li{
+	margin-top: 20px;
+	float: left;
+}
+.register-label{
+	display: block;
+	float: left;
+	height: 42px;
+	width: 90px;
+	line-height: 42px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: #666;
+	font-weight: 700;
+	text-align: right;
+}
+#register #register_form input{
+	float: left;
+	width: 250px;
+	height: 16px;
+	padding: 11px 10px 11px 10px;
+	outline: 0;
+	border: 1px solid #DDDDDD;
+}
+#register #register_form #register_captcha input{
+	width: 110px;
+	float: left;
+}
+#register #register_form #register_captcha img{
+	float: left;
+	margin:0 10px;
+}
+#register #register_form #register_captcha a{
+	text-decoration: none;
+	float: left;
+	width: 40px;
+	font-size: 12px;
+	height: 48px;
+	color: #1b66c7;
+	line-height: 48px;
+	float: left;
+}
+#register #register_protocol {
+	top:10px;
+	float: left;
+	position: relative;
+	width: 280px;
+	height:20px;
+	left:100px;
+	font-size: 12px;
+}
+#register #register_protocol input{
+	position: relative;
+	margin-right: 4px;
+	top:2px;
+}
+#register #register_submit{
+	border-bottom: 1px solid #EEEEEE;
+	
+	top:20px;
+	float: left;
+	left:98px;
+	position: relative;
+	width: 280px;
+	height:100px;
+}
+#register #register_submit input {
+	width: 276px;
+	height: 46px;
+	display: block;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #fff;
+	border: 0;
+	font-family: inherit;
+	outline: 0;
+	text-align: center;
+	background: #3f89ec;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	transition: .3s;
+}
+#register #register_submit p#errormsg{
+	width: 214px;
+	height: 48px;
+	font-size: 12px;
+	padding-left: 10px;
+	line-height: 48px;
+	text-align: left;
+	color: red;
+	float: left;
+}
+#register #register_submit a {
+	font-size: 12px;
+	line-height: 50px;
+	color: #1B66C7;
+}

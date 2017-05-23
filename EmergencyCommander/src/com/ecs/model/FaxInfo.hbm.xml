@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	 "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	 
+<hibernate-mapping>
+
+	<class name="com.ecs.model.FaxInfo" table="faxinfo">
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name" type="string" length="30"></property>
+		<property name="time" column="time" type="date"></property>
+		<property name="topic" column="topic" type="string" length="100"></property>
+		<property name="snumber" column="snumber" type="string" length="30"></property>
+		<property name="rnumber" column="rnumber" type="string" length="30"></property>
+		
+	</class>
+
+</hibernate-mapping>

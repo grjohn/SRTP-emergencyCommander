@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.ecs.model.Access" table="access">
+			<id name="accessid" column="accessid" type="integer">
+				<generator class="native" />
+			</id>
+			<property name="aname" column="aname" length="20" type="string" not-null="true" />
+			<property name="pid" column="pid" type="int"/>
+			<property name="icon" column="icon" type="string" length="40"/>
+			<property name="accessurl" column="accessurl" type="string" length="100"/>
+			<property name="leaf" column="leaf" type="boolean"/>
+	</class>
+
+</hibernate-mapping>

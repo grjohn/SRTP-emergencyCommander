@@ -1,0 +1,3 @@
+[	
+	{id: '1111', name: 'xxx精神病院', contact: '李四', ctel: '981237131', dtel: '342342', email: '11211@swjtu.cn', address: '成都犀浦', postalcode: '12121', intro:'嘿siri', comment: '你好，啥事'}
+]

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	 
+<hibernate-mapping>
+
+	<class name="com.ecs.model.User" table="user">
+		<id name="id" column="id" type="int">
+		<!-- native生成的只能是int,若上面配成string会导致无法建表 -->
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name" type="string" length="20"></property>
+		<property name="password" column="password" type="string" length="20"></property>
+		<property name="roleid" column="roleid" type="integer"></property>
+		<property name="email" column="email" type="string" length="40"></property>
+		<property name="contact" column="contact" type="string" length="20"></property>
+		<property name="comment" column="comment" type="string"></property>
+	</class>
+
+</hibernate-mapping>

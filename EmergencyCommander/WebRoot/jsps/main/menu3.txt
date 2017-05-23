@@ -1,0 +1,5 @@
+[
+	{id:'workstatus',text:'组织工作动态',leaf: true,iconCls:'zhenwumanagemenu_1'},
+	{id:'provision',text:"相关标准与规定",leaf: true,iconCls:'zhenwumanagemenu_2'},
+	{id:'conference',text:"会议记录",leaf:true,iconCls:'zhenwumanagemenu_3'}
+]

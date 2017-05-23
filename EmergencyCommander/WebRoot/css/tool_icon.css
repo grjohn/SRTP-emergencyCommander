@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+.add_icon{
+	background-image: url(../images/tool/add.png);
+}
+
+.edit_icon{
+	background-image: url(../images/tool/edit.png);
+}
+
+.delete_icon{
+	background-image: url(../images/tool/delete.png);
+}
+
+.save_icon{
+	background-image: url(../images/tool/save.png);
+}
+
+.role_edit{
+	background-image: url(../images/tool/roleedit.png)
+}
+
+.print_icon{
+	background-image: url(../images/tool/print.png);
+}
+
+.submit_icon{
+	background-image: url(../images/tool/submit.png);
+}
+
+.download_icon{
+	background-image: url(../images/tool/download.png);
+}
+
+
+
+.chart_column{
+	background-image: url(../images/chart/column.png);
+}
+
+.chart_pie{
+	background-image: url(../images/chart/pie.png);
+}
+
+.chart_bar{
+	background-image: url(../images/chart/bar.png);
+}
+
+.chart_line{
+	background-image: url(../images/chart/line.png);
+}
+
+.chart_mix{
+	background-image: url(../images/chart/mix.png);
+}
+
+.chart_reload{
+	background-image: url(../images/chart/reload.png);
+}
+
+.chart_save{
+	background-image: url(../images/chart/save.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

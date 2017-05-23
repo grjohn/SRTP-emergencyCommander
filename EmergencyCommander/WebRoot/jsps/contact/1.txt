@@ -1,0 +1,162 @@
+[
+    {
+        "id": "01",
+        "text": "各单位通讯信息",
+        "iconCls": "us",
+        "leaf": false,
+        "children": [
+            {
+                "id": "010",
+                "text": "消防部门",
+                "iconCls": null,
+                "leaf": false,
+                "children": [
+                    {
+                        "id": "0100",
+                        "text": "消防一队",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0101",
+                        "text": "消防二队",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0102",
+                        "text": "消防三队",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    }
+                ]
+            },
+            {
+                "id": "011",
+                "text": "医疗部门",
+                "iconCls": null,
+                "leaf": false,
+                "children": [
+                    {
+                        "id": "0110",
+                        "text": "县第一医院",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0111",
+                        "text": "县人民医院",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0112",
+                        "text": "县第二医院",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    }
+                ]
+            },
+            {
+                "id": "012",
+                "text": "公安部门",
+                "iconCls": null,
+                "leaf": true,
+                "children": null
+            },
+            {
+                "id": "013",
+                "text": "县级单位",
+                "iconCls": null,
+                "leaf": false,
+                "children": [
+                    {
+                        "id": "0130",
+                        "text": "县政府",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0131",
+                        "text": "县人大",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0132",
+                        "text": "县民防",
+                        "iconCls": null,
+                        "leaf": true,
+                        "children": null
+                    },
+                    {
+                        "id": "0133",
+                        "text": "镇级单位",
+                        "iconCls": null,
+                        "leaf": false,
+                        "children": [
+                            {
+                                "id": "01330",
+                                "text": "犀浦镇",
+                                "iconCls": null,
+                                "leaf": true,
+                                "children": null
+                            },
+                            {
+                                "id": "01331",
+                                "text": "红光镇",
+                                "iconCls": null,
+                                "leaf": true,
+                                "children": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "02",
+        "text": "本单位通讯信息",
+        "iconCls": "organization",
+        "leaf": false,
+        "children": [
+            {
+                "id": "020",
+                "text": "办公室",
+                "iconCls": "us_leaf",
+                "leaf": true,
+                "children": null
+            },
+            {
+                "id": "021",
+                "text": "组织部",
+                "iconCls": "us_leaf",
+                "leaf": true,
+                "children": null
+            },
+            {
+                "id": "022",
+                "text": "宣传部",
+                "iconCls": "us_leaf",
+                "leaf": true,
+                "children": null
+            },
+            {
+                "id": "023",
+                "text": "值守部",
+                "iconCls": "us_leaf",
+                "leaf": true,
+                "children": null
+            }
+        ]
+    }
+]

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	 "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	 
+<hibernate-mapping>
+
+	<class name="com.ecs.model.RoleAccess" table="roleaccess">
+	<!-- 配置联合主键 -->
+		<composite-id name="roleaccessid" class="com.ecs.model.RoleAccessId">
+			<key-property name="roleid" type="integer">
+                <column name="roleid"/>
+            </key-property>
+            <key-property name="accessid" type="integer">
+                <column name="accessid"/>
+            </key-property>
+		</composite-id>
+		<many-to-one name="role" class="com.ecs.model.Role" update="false" insert="false" fetch="select">
+            <column name="roleid" not-null="true"></column>
+        </many-to-one>
+        <many-to-one name="access" class="com.ecs.model.Access" update="false" insert="false" fetch="select">
+            <column name="accessid" not-null="true"></column>
+        </many-to-one>
+	</class>
+
+</hibernate-mapping>

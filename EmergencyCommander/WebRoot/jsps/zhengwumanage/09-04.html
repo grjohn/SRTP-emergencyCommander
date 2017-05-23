@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+        <title>04.form</title>
+        <link rel="stylesheet" type="text/css" href="../../ext/resources/css/ext-all.css" />
+        <script type="text/javascript" src="../../ext/ext-all.js"></script>
+        <script type="text/javascript">
+Ext.onReady(function(){
+
+    var form = new Ext.form.FormPanel({
+        labelAlign: 'right',
+        title: 'form',
+        labelWidth: 50,
+        frame:true,
+        fileUpload: true,
+        url: '09_04.jsp',
+        width: 280,
+
+        items: [{
+            xtype: 'textfield',
+            fieldLabel: '文本框',
+            name: 'file',
+            inputType: 'file'
+        }],
+        buttons: [{
+            text: '提交',
+            handler: function() {
+                form.getForm().submit({
+                    success: function(form, action){
+                        Ext.Msg.alert('信息', action.result.msg);
+                    },
+                    failure: function(){
+                        Ext.Msg.alert('错误', '失败');
+                    }
+                });
+            }
+        }]
+    });
+    form.render("form");
+
+});
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript" src="../examples.js"></script>
+        <div id="form" style="margin:100px;"></div>
+    </body>
+</html>
