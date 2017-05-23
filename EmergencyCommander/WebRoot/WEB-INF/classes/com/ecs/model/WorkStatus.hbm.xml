@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	 "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	 
+<hibernate-mapping>
+
+	<class name="com.ecs.model.WorkStatus" table="workstatus">
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+		<property name="title" column="title" type="string" length="50"></property>
+		<!-- 注意，hibernate中的date和calendar_date只能保存到日 ,对应sql中的timestamp；time只保存时分秒对应sql
+		中的time；calender和timestamp可保存全部，对应sql中的timestamp-->
+		<property name="etime" column="etime" type="timestamp"></property>
+		<property name="rtime" column="rtime" type="timestamp"></property>
+		<property name="editor" column="editor" type="string" length="20"></property>
+		<property name="confirmer" column="confirmer" type="string" length="20"></property>
+		<property name="comment" column="comment" type="text"></property>
+		<property name="location" column="location" type="string"></property>
+		
+		
+		
+	</class>
+
+</hibernate-mapping>

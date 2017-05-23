@@ -1,0 +1,4 @@
+当user的id属性缺失时，无法读取，其姓名和编号都为空
+id顺序不对时，同样也为空
+
+报表软件:qlick sense desktop

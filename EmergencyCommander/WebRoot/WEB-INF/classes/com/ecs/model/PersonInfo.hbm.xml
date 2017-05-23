@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	 "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	 
+<hibernate-mapping>
+
+	<class name="com.ecs.model.PersonInfo" table="personinfo">
+		<id name="id" column="id" type="string">
+		</id>
+		<property name="name" column="name" type="string" length="20"></property>
+		<property name="position" column="position" type="string" length="30"></property>
+		<property name="tel" column="tel" type="string" length="40"></property>
+		<property name="department" column="department" type="string" length="30"></property>
+		<property name="did" column="did" type="string" length="10"></property>
+		<property name="time" column="time" type="date"></property>
+		
+	</class>
+
+</hibernate-mapping>

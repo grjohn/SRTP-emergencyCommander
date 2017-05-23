@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.ecs.model.CallRecord" table="callrecord">
+		
+		<id name="id" column="id" type="string">
+			<generator class="uuid"></generator>
+		</id>
+		
+		<property name="time" column="time" type="timestamp"></property>
+		<property name="caller" column="caller" type="string" length="30"></property>
+		<property name="called" column="called" type="string" length="30"></property>
+		<property name="timelong" column="timelong" type="string"></property>
+		
+	</class>
+
+</hibernate-mapping>

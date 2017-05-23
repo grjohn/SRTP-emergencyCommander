@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>路线规划</title>
+    <style type="text/css">
+        body
+        {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	font-size: 12px;
+	background-image: url(../f3733ed59a4b5a7edb8608d85a44f2ac.jpg);
+        }
+        .main-container
+        {
+            margin: 30px;
+        }
+        .search-form
+        {
+            margin: 0px;
+            width: 100%;
+            height: 60px;
+        }
+        #mapContainer
+        {
+            position: absolute;
+            top: 120px;
+            margin: 15px;
+            left: 8px;
+            border: 1px solid #080808;
+            right: 8px;
+            bottom: 0;
+        }
+        #panel {
+            position: fixed;
+            background-color: white;
+            max-height: 50%;
+            overflow-y: auto;
+            top: 300px;
+            right: 20px;
+            width: 180px;
+        }
+    </style>
+
+<style type="text/css">
+	.divcss5{text-align:center}
+	.ex1{font-size:x-large;
+		 color:#F00;
+		}
+.divcss5 .ex1 {
+}
+.STYLE6 {
+	font-family: "叶根友毛笔行书2.0版";
+	font-size: 36px;
+}
+.STYLE7 {font-family: "Times New Roman", Times, serif}
+.STYLE8 {font-family: "方正粗圆简体"}
+.STYLE10 {font-family: "方正粗圆简体"; font-weight: bold; }
+</style>
+  <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=1994ba35a603f806df16000f3799b1da&plugin=AMap.Driving"></script>
+     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+<body>    
+
+<div class="divcss5">
+                      <br> <br> 
+  <div class="ex1"><b><span class="STYLE6">消防地理<span class="STYLE7">GIS</span>信息查询</span></b></div>
+                     <span class="STYLE10">纬度：</span>
+<input type="text" id="lngX" name="lngX" />
+                     <b> <span class="STYLE8">经度：</span>	                  &nbsp;&nbsp;</b>
+                     <input type="text" id="latY" name="latY" />
+                     <br>
+&nbsp;
+<input name="text" type="text" id="SearchKey" style="width: 337px;" />
+<input name="button" type="button" id="btn_Search" onClick="placeSearch();" value="查询" />
+</div>             
+      <div id="mapContainer"></div>
+ 
+    <script type="text/javascript">
+        var marker;
+        var windowsArr;
+        var toolBar = null;
+        var overView;
+        var editorTool;
+        var map = new AMap.Map("mapContainer", {
+            resizeEnable: true,zoom:12
+        });
+        var $= function(elementId){
+        return document.getElementById(elementId);
+    };
+    var lngX = $('lngX'),latY = $('latY');
+    var pixelX = $('pixelx'),pixelY = $('pixely');
+    map.on( 'click',  function (e) {
+        lngX.value = e.lnglat.getLng();
+        latY.value = e.lnglat.getLat();
+    });
+        map.plugin(["AMap.ToolBar"], function () {
+            toolBar = new AMap.ToolBar();
+            map.addControl(toolBar);
+        });
+      function placeSearch1() {
+    map = new AMap.Map("mapContainer", {
+                resizeEnable: true
+            });
+          var $= function(elementId){
+        return document.getElementById(elementId);
+    };
+    var lngX = $('lngX'),latY = $('latY');
+    var pixelX = $('pixelx'),pixelY = $('pixely');
+    map.on( 'click',  function (e) {
+        lngX.value = e.lnglat.getLng();
+        latY.value = e.lnglat.getLat();
+    });
+            map.plugin(["AMap.ToolBar"], function () {
+                toolBar = new AMap.ToolBar();
+                map.addControl(toolBar);
+            });
+            //在地图中添加鹰眼插件
+            map.plugin(["AMap.OverView"], function () {
+                //加载鹰眼
+                //初始化隐藏鹰眼
+                overView = new AMap.OverView({
+                    visible: true
+                });
+                map.addControl(overView);
+            });
+            //添加地图类型切换插件
+            map.plugin(["AMap.MapType"], function () {
+                //地图类型切换
+                var mapType = new AMap.MapType({
+                    defaultType: 0, //默认显示卫星图
+                    showRoad: true //叠加路网图层
+                });
+                map.addControl(mapType);
+            });
+            //加载比例尺插件
+            map.plugin(["AMap.Scale"], function () {
+                scale = new AMap.Scale();
+                map.addControl(scale);
+            });
+            //设置多边形的属性
+            var polygonOption = {
+                strokeColor: "#0000ff",
+                strokeOpacity: 1,
+                strokeWeight: 3
+            };
+            var polygonArr;
+            //在地图中添加MouseTool插件
+                //在地图中添加MouseTool插件
+    map.plugin(["AMap.MouseTool"], function() {
+        var mouseTool = new AMap.MouseTool(map);
+        //鼠标工具插件添加draw事件监听
+        AMap.event.addListener(mouseTool, "draw", function callback(e) {
+            var eObject = e.obj;//obj属性就是鼠标事件完成所绘制的覆盖物对象。
+        });
+        mouseTool.measureArea();  //调用鼠标工具的面积量测功能
+    });
+
+    
+   
+    //构造路线导航类
+    var driving = new AMap.Driving({
+        map: map,
+        panel: "panel"
+    }); 
+        driving.search(new AMap.LngLat(document.getElementById("SearchKey1").value, document.getElementById("SearchKey2").value), new AMap.LngLat(document.getElementById("SearchKey3").value, document.getElementById("SearchKey4").value));     
+    }
+      
+        //在地图中添加鹰眼插件
+        map.plugin(["AMap.OverView"], function () {
+            //加载鹰眼
+            //初始化隐藏鹰眼
+            overView = new AMap.OverView({
+                visible: true
+            });
+            map.addControl(overView);
+        });
+        //添加地图类型切换插件
+        map.plugin(["AMap.MapType"], function () {
+            //地图类型切换
+            var mapType = new AMap.MapType({
+                defaultType: 0, //默认显示卫星图
+                showRoad: true //叠加路网图层
+            });
+            map.addControl(mapType);
+        });
+        //加载比例尺插件
+        map.plugin(["AMap.Scale"], function () {
+            scale = new AMap.Scale();
+            map.addControl(scale);
+        });
+        //基本地图加载
+        function placeSearch() {
+            map = new AMap.Map("mapContainer", {
+                resizeEnable: true
+            });
+            var $= function(elementId){
+        return document.getElementById(elementId);
+    };
+    var lngX = $('lngX'),latY = $('latY');
+    var pixelX = $('pixelx'),pixelY = $('pixely');
+    map.on( 'click',  function (e) {
+        lngX.value = e.lnglat.getLng();
+        latY.value = e.lnglat.getLat();
+    });
+            map.plugin(["AMap.ToolBar"], function () {
+                toolBar = new AMap.ToolBar();
+                map.addControl(toolBar);
+            });
+            //在地图中添加鹰眼插件
+            map.plugin(["AMap.OverView"], function () {
+                //加载鹰眼
+                //初始化隐藏鹰眼
+                overView = new AMap.OverView({
+                    visible: true
+                });
+                map.addControl(overView);
+            });
+            //添加地图类型切换插件
+            map.plugin(["AMap.MapType"], function () {
+                //地图类型切换
+                var mapType = new AMap.MapType({
+                    defaultType: 0, //默认显示卫星图
+                    showRoad: true //叠加路网图层
+                });
+                map.addControl(mapType);
+            });
+            //加载比例尺插件
+            map.plugin(["AMap.Scale"], function () {
+                scale = new AMap.Scale();
+                map.addControl(scale);
+            });
+            //设置多边形的属性
+            var polygonOption = {
+                strokeColor: "#0000ff",
+                strokeOpacity: 1,
+                strokeWeight: 3
+            };
+            var polygonArr;
+            //在地图中添加MouseTool插件
+            map.plugin(["AMap.MouseTool"], function () {
+                var mouseTool = new AMap.MouseTool(map);
+                //使用鼠标工具绘制多边形
+                mouseTool.polygon(polygonOption);
+                AMap.event.addListener(mouseTool, "draw", function (e) {
+                    //obj属性就是绘制完成的覆盖物对象
+                    var drawObj = e.obj;
+                    //获取节点个数
+                    var pointsCount = e.obj.getPath().length;
+
+                    polygonArr = new Array(); //构建多边形经纬度坐标数组
+                    for (var i = 0; i < pointsCount; i++) {
+                        polygonArr.push(new AMap.LngLat(e.obj.getPath()[i].lng, e.obj.getPath()[i].lat));
+                    }
+                    var polygon = new AMap.Polygon({
+                        map: map,
+                        path: polygonArr,
+                        fillColor: "#f5deb3",
+                        fillOpacity: 0.35
+                    }); mouseTool.measureArea(); 
+                    //添加编辑控件
+                    map.plugin(["AMap.PolyEditor"], function () {
+                        editorTool = new AMap.PolyEditor(map, polygon);
+                    }); mouseTool.measureArea(); 
+                }); mouseTool.measureArea(); 
+            });
+
+            marker = new Array();
+            windowsArr = new Array();
+            var searchKey = document.getElementById("SearchKey").value;
+            var MSearch;
+            AMap.service(["AMap.PlaceSearch"], function () {
+                MSearch = new AMap.PlaceSearch({ //构造地点查询类
+                    pageSize: 10,
+                    pageIndex: 1,
+                    city: "021" //城市
+                });
+                //关键字查询
+                MSearch.search(searchKey, function (status, result) {
+                    if (status === 'complete' && result.info === 'OK') {
+                        keywordSearch_CallBack(result);
+                    }
+                });
+            });
+        }
+        function edditpolygon() {
+            editorTool.open();
+        }
+        function endEddit() {
+            editorTool.close();
+        }
+        //添加marker&infowindow   
+        function addmarker(i, d) {
+            var lngX = d.location.getLng();
+            var latY = d.location.getLat();
+            var markerOption = {
+                map: map,
+                icon: "http://webapi.amap.com/images/" + (i + 1) + ".png",
+                position: new AMap.LngLat(lngX, latY),
+                topWhenMouseOver: true
+
+            };
+          
+          AMap.service('AMap.Weather', function() {
+        var weather = new AMap.Weather();
+        //查询实时天气信息, 查询的城市到行政级别的城市，如朝阳区、杭州市
+        weather.getLive(document.getElementById("SearchKey").value, function(err, data) {
+            if (!err) {
+                var str = [];
+                str.push('<div style="color: #3366FF;">实时天气' + '</div>');
+                str.push('<div>城市/区：' + data.city + '</div>');
+                str.push('<div>天气：' + data.weather + '</div>');
+                str.push('<div>温度：' + data.temperature + '℃</div>');
+                str.push('<div>风向：' + data.windDirection + '</div>');
+                str.push('<div>风力：' + data.windPower + ' 级</div>');
+                str.push('<div>空气湿度：' + data.humidity + '</div>');
+                str.push('<div>发布时间：' + data.reportTime + '</div>');
+                var marker = new AMap.Marker({map: map, position: map.getCenter()});
+                var infoWin = new AMap.InfoWindow({
+                    content: str.join(''),
+                    offset: new AMap.Pixel(0, -20)
+                });
+                infoWin.open(map, marker.getPosition());
+                marker.on('mouseover', function() {
+                    infoWin.open(map, marker.getPosition());
+                });
+            }
+        });
+        //未来4天天气预报
+        weather.getForecast(document.getElementById("SearchKey"), function(err, data) {
+            if (err) {return;}
+            var str = [];
+            for (var i = 0,dayWeather; i < data.forecasts.length; i++) {
+                dayWeather = data.forecasts[i];
+                str.push(dayWeather.date+' <div class="weather">'+dayWeather.dayWeather+'</div> '+ dayWeather.nightTemp + '~' + dayWeather.dayTemp + '℃');
+            }
+            document.getElementById('tip').innerHTML = str.join('<br>');
+        });
+    });
+          
+          
+          
+            var mar = new AMap.Marker(markerOption);
+            marker.push(new AMap.LngLat(lngX, latY));
+
+            var infoWindow = new AMap.InfoWindow({
+                content: "<h3><font color=\"#00a6ac\">  " + (i + 1) + ". " + d.name + "</font></h3>" + TipContents(d.type, d.address, d.tel),
+                size: new AMap.Size(300, 0),
+                autoMove: true,
+                offset: new AMap.Pixel(0, -20)
+            });
+            windowsArr.push(infoWindow);
+            var aa = function (e) { infoWindow.open(map, mar.getPosition()); };
+            AMap.event.addListener(mar, "mouseover", aa);
+        }
+        //回调函数
+        function keywordSearch_CallBack(data) {
+            var resultStr = "";
+            var poiArr = data.poiList.pois;
+            var resultCount = poiArr.length;
+            for (var i = 0; i < resultCount; i++) {
+                resultStr += "<div id='divid" + (i + 1) + "' onmouseover='openMarkerTipById1(" + i + ",this)' onmouseout='onmouseout_MarkerStyle(" + (i + 1) + ",this)' style=\"font-size: 12px;cursor:pointer;padding:0px 0 4px 2px; border-bottom:1px solid #C1FFC1;\"><table><tr><td><img src=\"http://webapi.amap.com/images/" + (i + 1) + ".png\"></td>" + "<td><h3><font color=\"#00a6ac\">名称: " + poiArr[i].name + "</font></h3>";
+                resultStr += TipContents(poiArr[i].type, poiArr[i].address, poiArr[i].tel) + "</td></tr></table></div>";
+                addmarker(i, poiArr[i]);
+            }
+            map.setFitView();
+        }
+        function TipContents(type, address, tel) {  //窗体内容
+            if (type == "" || type == "undefined" || type == null || type == " undefined" || typeof type == "undefined") {
+                type = "暂无";
+            }
+            if (address == "" || address == "undefined" || address == null || address == " undefined" || typeof address == "undefined") {
+                address = "暂无";
+            }
+            if (tel == "" || tel == "undefined" || tel == null || tel == " undefined" || typeof address == "tel") {
+                tel = "暂无";
+            }
+            var str = "  地址：" + address + "<br />  电话：" + tel + " <br />  类型：" + type;
+            return str;
+        }
+        function openMarkerTipById1(pointid, thiss) {  //根据id 打开搜索结果点tip
+            thiss.style.background = '#CAE1FF';
+            windowsArr[pointid].open(map, marker[pointid]);
+        }
+        function onmouseout_MarkerStyle(pointid, thiss) { //鼠标移开后点样式恢复
+            thiss.style.background = "";
+        }
+    </script>
+
+</body>
+</html>

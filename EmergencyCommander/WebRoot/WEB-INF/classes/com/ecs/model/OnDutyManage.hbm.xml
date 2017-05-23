@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	 "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+	 
+<hibernate-mapping>
+
+	<class name="com.ecs.model.OnDutyManage" table="ondutymanage">
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+		<property name="date" column="date" type="date"></property>
+		<property name="weekday" column="weekday" type="date"></property>
+		<property name="leader" column="leader" type="string" length="20"></property>
+		<property name="lposition" column="lposition" type="string" length="30"></property>
+		<property name="ltel" column="ltel" type="string" length="30"></property>
+		<property name="name" column="name" type="string" length="20"></property>
+		<property name="shift" column="shift" type="string" length="20"></property>
+		<property name="dtel" column="dtel" type="string" length="30"></property>
+		
+	</class>
+
+</hibernate-mapping>
